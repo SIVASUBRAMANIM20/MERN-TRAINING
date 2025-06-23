@@ -1,0 +1,17 @@
+/* login.css */
+.login{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 95px;
+    margin-top: 500px;
+    border-color: aqua;
+    border-width: 90px;
+}
+#a{
+    background-color: white;
+    height: 50px;
+    width: 500px;
+    border-color: aqua;
+    border-radius: 10px;
+}
