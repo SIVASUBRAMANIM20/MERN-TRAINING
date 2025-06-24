@@ -1,0 +1,523 @@
+use mydatabase
+switched to db mydatabase
+db.createCollection("student-name")
+{ ok: 1 }
+db.mycollege.insertOne({Name:"Anu",Age:20,Department:"cse"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('685a67e5b4b58d66cc7fb2cf')
+}
+db.mycollege.insertMany([{Name:"Bala",Age:21,Department:"ECE"},{Name:"Diya",Age:22,Department:"EEE"},{Name:"sara",Age:23,Department:"IT"},{Name:"Ram",Age:22,Department:"EEE"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('685a69e9b4b58d66cc7fb2d0'),
+    '1': ObjectId('685a69e9b4b58d66cc7fb2d1'),
+    '2': ObjectId('685a69e9b4b58d66cc7fb2d2'),
+    '3': ObjectId('685a69e9b4b58d66cc7fb2d3')
+  }
+}
+db.mycollege.updateMany([{Name:"Bala",Age:21,Department:"ECE"},{ $set: { city: "chennai" } }
+,{Name:"Diya",Age:22,Department:"EEE"},{ $set: { city: "mumbai" } }
+,{Name:"sara",Age:23,Department:"IT"},{ $set: { city: "chennai"} }
+,{Name:"Ram",Age:22,Department:"EEE"},{ $set: { city: "delhi" } }
+])
+MongoInvalidArgumentError: Update document requires atomic operators
+db.mycollege.updateOne({Name:"Bala"},{$set:{city:"chennai"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.mycollege.updateOne(
+  { Name: "Diya", Age: 22, Department: "EEE" },
+  { $set: { city: "mumbai" } }
+)
+
+db.mycollege.updateOne(
+  { Name: "sara", Age: 23, Department: "IT" },
+  { $set: { city: "chennai" } }
+)
+
+db.mycollege.updateOne(
+  { Name: "Ram", Age: 22, Department: "EEE" },
+  { $set: { city: "delhi" } }
+)
+
+  
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+edb.mycollege.find({Department:"cse"})
+ReferenceError: edb is not defined
+db.mycollege.find({Department:"cse"})
+{
+  _id: ObjectId('685a67e5b4b58d66cc7fb2cf'),
+  Name: 'Anu',
+  Age: 20,
+  Department: 'cse'
+}
+db.mycollege.find({age:{$gt:20}})
+db.mycollege.find({ age: { $gt: 20 } })
+db.mycollege.find({ age: { $gt: 20 } })
+db.student.find({ age: { $gte: 20 } })
+db.student-name.find({ age: { $gt: 20 } })
+ReferenceError: name is not defined
+db.createCollection(mycollege)
+ReferenceError: mycollege is not defined
+db.createCollection("mycollege")
+{ ok: 1 }
+db.mycollege.find({ age: { $gt: 20 } })
+db.mycollege.insertOne({Name:"Anu",Age:20,Department:"cse"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('685a75f2b4b58d66cc7fb2d4')
+}
+db.mycollege.insertMany([{Name:"Bala",Age:21,Department:"ECE"},{Name:"Diya",Age:22,Department:"EEE"},{Name:"sara",Age:23,Department:"IT"},{Name:"Ram",Age:22,Department:"EEE"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('685a7641b4b58d66cc7fb2d5'),
+    '1': ObjectId('685a7641b4b58d66cc7fb2d6'),
+    '2': ObjectId('685a7641b4b58d66cc7fb2d7'),
+    '3': ObjectId('685a7641b4b58d66cc7fb2d8')
+  }
+}
+db.mycollege.find({ age: { $gte: 20 } })
+db.mycollege.find()
+{
+  _id: ObjectId('685a67e5b4b58d66cc7fb2cf'),
+  Name: 'Anu',
+  Age: 20,
+  Department: 'cse'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d0'),
+  Name: 'Bala',
+  Age: 21,
+  Department: 'ECE',
+  city: 'chennai'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d1'),
+  Name: 'Diya',
+  Age: 22,
+  Department: 'EEE',
+  city: 'mumbai'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d2'),
+  Name: 'sara',
+  Age: 23,
+  Department: 'IT',
+  city: 'chennai'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d3'),
+  Name: 'Ram',
+  Age: 22,
+  Department: 'EEE',
+  city: 'delhi'
+}
+{
+  _id: ObjectId('685a75f2b4b58d66cc7fb2d4'),
+  Name: 'Anu',
+  Age: 20,
+  Department: 'cse'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d5'),
+  Name: 'Bala',
+  Age: 21,
+  Department: 'ECE'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d6'),
+  Name: 'Diya',
+  Age: 22,
+  Department: 'EEE'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d7'),
+  Name: 'sara',
+  Age: 23,
+  Department: 'IT'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d8'),
+  Name: 'Ram',
+  Age: 22,
+  Department: 'EEE'
+}
+db.mycollege.find({ Age: { $gt: 20 } })
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d0'),
+  Name: 'Bala',
+  Age: 21,
+  Department: 'ECE',
+  city: 'chennai'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d1'),
+  Name: 'Diya',
+  Age: 22,
+  Department: 'EEE',
+  city: 'mumbai'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d2'),
+  Name: 'sara',
+  Age: 23,
+  Department: 'IT',
+  city: 'chennai'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d3'),
+  Name: 'Ram',
+  Age: 22,
+  Department: 'EEE',
+  city: 'delhi'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d5'),
+  Name: 'Bala',
+  Age: 21,
+  Department: 'ECE'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d6'),
+  Name: 'Diya',
+  Age: 22,
+  Department: 'EEE'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d7'),
+  Name: 'sara',
+  Age: 23,
+  Department: 'IT'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d8'),
+  Name: 'Ram',
+  Age: 22,
+  Department: 'EEE'
+}
+db.mycollege.find({ city: { $in: ["chennai", "delhi"] } })
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d0'),
+  Name: 'Bala',
+  Age: 21,
+  Department: 'ECE',
+  city: 'chennai'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d2'),
+  Name: 'sara',
+  Age: 23,
+  Department: 'IT',
+  city: 'chennai'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d3'),
+  Name: 'Ram',
+  Age: 22,
+  Department: 'EEE',
+  city: 'delhi'
+}
+db.mycollege.updateOne(
+  { name: "Ram" },
+  { $set: { department: "AIML" } }
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+db.mycollege.updateOne(
+  { name: "Anu" },
+  { $set: { email: "anu@example.com" } }
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+db.student.deleteOne({ name: "Diya" })
+{
+  acknowledged: true,
+  deletedCount: 0
+}
+db.mycollege.find({ age: { $lt: 23 } })
+db.mycollege.find({ Age: { $lt: 23 } })
+{
+  _id: ObjectId('685a67e5b4b58d66cc7fb2cf'),
+  Name: 'Anu',
+  Age: 20,
+  Department: 'cse'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d0'),
+  Name: 'Bala',
+  Age: 21,
+  Department: 'ECE',
+  city: 'chennai'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d1'),
+  Name: 'Diya',
+  Age: 22,
+  Department: 'EEE',
+  city: 'mumbai'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d3'),
+  Name: 'Ram',
+  Age: 22,
+  Department: 'EEE',
+  city: 'delhi'
+}
+{
+  _id: ObjectId('685a75f2b4b58d66cc7fb2d4'),
+  Name: 'Anu',
+  Age: 20,
+  Department: 'cse'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d5'),
+  Name: 'Bala',
+  Age: 21,
+  Department: 'ECE'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d6'),
+  Name: 'Diya',
+  Age: 22,
+  Department: 'EEE'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d8'),
+  Name: 'Ram',
+  Age: 22,
+  Department: 'EEE'
+}
+db.mycollege.find({ Department: { $in: ["ECE", "IT"] } })
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d0'),
+  Name: 'Bala',
+  Age: 21,
+  Department: 'ECE',
+  city: 'chennai'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d2'),
+  Name: 'sara',
+  Age: 23,
+  Department: 'IT',
+  city: 'chennai'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d5'),
+  Name: 'Bala',
+  Age: 21,
+  Department: 'ECE'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d7'),
+  Name: 'sara',
+  Age: 23,
+  Department: 'IT'
+}
+db.mycollege.find().limit(2)
+{
+  _id: ObjectId('685a67e5b4b58d66cc7fb2cf'),
+  Name: 'Anu',
+  Age: 20,
+  Department: 'cse'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d0'),
+  Name: 'Bala',
+  Age: 21,
+  Department: 'ECE',
+  city: 'chennai'
+}
+db.mycollege.find().sort({ age: 1 })
+{
+  _id: ObjectId('685a67e5b4b58d66cc7fb2cf'),
+  Name: 'Anu',
+  Age: 20,
+  Department: 'cse'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d0'),
+  Name: 'Bala',
+  Age: 21,
+  Department: 'ECE',
+  city: 'chennai'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d1'),
+  Name: 'Diya',
+  Age: 22,
+  Department: 'EEE',
+  city: 'mumbai'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d2'),
+  Name: 'sara',
+  Age: 23,
+  Department: 'IT',
+  city: 'chennai'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d3'),
+  Name: 'Ram',
+  Age: 22,
+  Department: 'EEE',
+  city: 'delhi'
+}
+{
+  _id: ObjectId('685a75f2b4b58d66cc7fb2d4'),
+  Name: 'Anu',
+  Age: 20,
+  Department: 'cse'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d5'),
+  Name: 'Bala',
+  Age: 21,
+  Department: 'ECE'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d6'),
+  Name: 'Diya',
+  Age: 22,
+  Department: 'EEE'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d7'),
+  Name: 'sara',
+  Age: 23,
+  Department: 'IT'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d8'),
+  Name: 'Ram',
+  Age: 22,
+  Department: 'EEE'
+}
+db.mycollege.find().sort({ Age: -1 })
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d2'),
+  Name: 'sara',
+  Age: 23,
+  Department: 'IT',
+  city: 'chennai'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d7'),
+  Name: 'sara',
+  Age: 23,
+  Department: 'IT'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d1'),
+  Name: 'Diya',
+  Age: 22,
+  Department: 'EEE',
+  city: 'mumbai'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d3'),
+  Name: 'Ram',
+  Age: 22,
+  Department: 'EEE',
+  city: 'delhi'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d6'),
+  Name: 'Diya',
+  Age: 22,
+  Department: 'EEE'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d8'),
+  Name: 'Ram',
+  Age: 22,
+  Department: 'EEE'
+}
+{
+  _id: ObjectId('685a69e9b4b58d66cc7fb2d0'),
+  Name: 'Bala',
+  Age: 21,
+  Department: 'ECE',
+  city: 'chennai'
+}
+{
+  _id: ObjectId('685a7641b4b58d66cc7fb2d5'),
+  Name: 'Bala',
+  Age: 21,
+  Department: 'ECE'
+}
+{
+  _id: ObjectId('685a67e5b4b58d66cc7fb2cf'),
+  Name: 'Anu',
+  Age: 20,
+  Department: 'cse'
+}
+{
+  _id: ObjectId('685a75f2b4b58d66cc7fb2d4'),
+  Name: 'Anu',
+  Age: 20,
+  Department: 'cse'
+}
+db.mycollege.aggregate([
+  { 
+    $group: { 
+      _id: "$Department", 
+      totalPrice: { $sum: "$Age" } 
+    } 
+  }
+])
+{
+  _id: 'EEE',
+  totalPrice: 88
+}
+{
+  _id: 'cse',
+  totalPrice: 40
+}
+{
+  _id: 'ECE',
+  totalPrice: 42
+}
